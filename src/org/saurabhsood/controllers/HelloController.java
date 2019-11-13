@@ -1,6 +1,7 @@
 package org.saurabhsood.controllers;
 
 import org.saurabhsood.bean.User;
+import org.saurabhsood.exception.UnauthorizedException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+import java.io.IOException;
 
 /**
  * Created by saurabh on 2/11/17.
@@ -37,6 +39,10 @@ public class HelloController {
             return "add-user";
         }
         return "view-user";
+    }
+    @RequestMapping(value = "/unauthorizedException")
+    public String testUnauthorizedException() throws IOException {
+        throw new UnauthorizedException();
     }
 
 }
